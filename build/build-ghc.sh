@@ -19,5 +19,5 @@ cat /proc/meminfo
 
 echo
 echo STARTING BUILD
-time make "-j$(nproc)"
-time make "-j$(nproc)" install
+make "-j$(nproc)"
+make "-j$(nproc)" install
