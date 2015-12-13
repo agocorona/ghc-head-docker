@@ -4,4 +4,4 @@ machine:
 
 test:
   override:
-    - docker build .
+    - ./build-and-package.sh
