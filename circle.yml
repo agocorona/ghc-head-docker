@@ -3,5 +3,7 @@ machine:
     - docker
 
 test:
+  pre:
+    - time docker pull gregweber/ghc-haskell-dev
   override:
     - ./build-and-package.sh
