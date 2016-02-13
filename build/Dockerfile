@@ -1,5 +1,10 @@
 FROM gregweber/ghc-haskell-dev
 
+RUN git clone git://github.com/haskell/cabal \
+    && cd cabal \
+    && cabal update \
+    6& cabal install Cabal/ cabal-install/
+
 USER root
 RUN apt-get install -y git
 
@@ -7,6 +12,7 @@ RUN git config --global url."https://github.com/ghc/packages-".insteadOf   https
 RUN git clone  --depth 1 --recursive https://github.com/ghc/ghc.git /ghc
 
 RUN ln -s /opt/ghc/7.8.3 /opt7.8.3
+
 
 ADD build-ghc.sh /
 RUN chmod +x /build-ghc.sh
